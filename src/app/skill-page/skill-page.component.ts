@@ -34,39 +34,35 @@ export class SkillPageComponent implements OnInit {
   stealth: 0;
   survival: 0;
   stateCheck = () => {
-    console.log('STRENGTH', this.strength);
-    console.log('DEXTERITY', this.dexterity);
-    console.log('CONSTITUTION', this.constitution);
-    console.log('INTELLIGENCE', this.intelligence);
-    console.log('WISDOM', this.wisdom);
-    console.log('CHARISMA', this.charisma);
-    console.log('CHARISMA', this.proficiency);
+    // console.log('STRENGTH', this.strength);
+    // console.log('DEXTERITY', this.dexterity);
+    // console.log('CONSTITUTION', this.constitution);
+    // console.log('INTELLIGENCE', this.intelligence);
+    // console.log('WISDOM', this.wisdom);
+    // console.log('CHARISMA', this.charisma);
+    // console.log('PROFICIENCY', this.proficiency);
   }
-  // skillCheck = (skillProficiencyPassed) => {
-  //   const proficiencyBonus = skillProficiencyPassed * this.proficiency;
-  //
-  // }
+  skillCheck = (skillProficiencyPassed, skillStat) => {
+    console.log('-------------------------------------------------------')
+    console.log('PROFICIENCY ---->', this.proficiency)
+    console.log('SKILL"s STAT ---->', skillStat)
+    const proficiencyBonus = skillProficiencyPassed * this.proficiency;
+    console.log('SKILL PROF * PROF ---->', proficiencyBonus)
+    const dieTwentyRoll = this.rollDieTwenty();
+    console.log('ROLL ---->', dieTwentyRoll)
+    console.log('ROLL W/PROF+Skill State ---->', dieTwentyRoll + proficiencyBonus + skillStat)
+    console.log('-------------------------------------------------------')
+
+    return (dieTwentyRoll + proficiencyBonus + skillStat);
+
+  }
   rollDieTwenty = () => {
     const max = 20;
     const min = 1;
+    // https://stackoverflow.com/a/1527820 used for this solution below to get a random number,
+    // evenly distributed from 1 - 20.
     const roll = Math.floor(Math.random() * (max - min + 1)) + min;
     return roll;
-    // for (let i = 0; i < 100000; i++) {
-    //   // const test = Math.round(Math.random() * 20);
-    //   const test = Math.floor(Math.random() * (max - min + 1)) + min;
-    //   if (test < 1) {
-    //     console.log('BELOW 1');
-    //     console.log(test);
-    //
-    //   }
-    //   if (test > 20) {
-    //     console.log('ABOVE 20');
-    //     console.log(test);
-    //   }
-    //
-    // }
-    // console.log('Cleared');
-    // console.log(Math.round(Math.random() * 20));
   }
   ngOnInit(): void {
   }
