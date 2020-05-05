@@ -1,25 +1,455 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
-      Strength
-      <input placeholder="Strength Modifier" value="Strength" type="number" (change)="$event">
-    </div>
-    <div class="col">
-      Dexterity
-    </div>
-    <div class="col">
-      Constitution
-    </div>
-    <div class="col">
-      Intelligence
-    </div>
-    <div class="col">
-      Wisdom
-    </div>
-    <div class="col">
-      Charisma
+    <div class="col-2">
+      <div class="row">
+        Strength
+        <input placeholder="Strength Modifier" value="{{strength}}" type="number" [(ngModel)]="strength" (change)="stateCheck()">
+      </div>
+      <div class="row">
+        Dexterity
+        <input placeholder="Dexterity Modifier" value="{{dexterity}}" type="number" [(ngModel)]="dexterity" (change)="stateCheck()">
+
+      </div>
+      <div class="row">
+        Constitution
+        <input placeholder="Constitution Modifier" value="{{constitution}}" type="number" [(ngModel)]="constitution" (change)="stateCheck()">
+
+      </div>
+      <div class="row">
+        Intelligence
+        <input placeholder="Intelligence Modifier" value="{{intelligence}}" type="number" [(ngModel)]="intelligence" (change)="stateCheck()">
+
+      </div>
+      <div class="row">
+        Wisdom
+        <input placeholder="Wisdom Modifier" value="{{wisdom}}" type="number" [(ngModel)]="wisdom" (change)="stateCheck()">
+
+      </div>
+      <div class="row">
+        Charisma
+        <input placeholder="Charisma Modifier" value="{{charisma}}" type="number" [(ngModel)]="charisma" (change)="stateCheck()">
+
+      </div>
+      <div class="row">
+        Proficiency Bonus
+        <input placeholder="Proficiency Bonus" value="{{proficiency}}" type="number" [(ngModel)]="proficiency" (change)="stateCheck()">
+      </div>
+    </div> <!--State Column-->
+
+    <div class="col-4">
+      <div class="row">
+        Acrobatics
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="acrobatic-skill" class="acrobatic-skill" [(ngModel)]="acrobatics">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="acrobatic-skill" class="acrobatic-skill" [(ngModel)]="acrobatics">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="acrobatic-skill" class="acrobatic-skill" [(ngModel)]="acrobatics">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="acrobatic-skill" class="acrobatic-skill" [(ngModel)]="acrobatics">
+          Jack of All Trades
+        </label>
+      </div>
+
+
+      <div class="row">
+        Animal Handling
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="animalHandling-skill" class="animalHandling-skill" [(ngModel)]="animalHandling">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="animalHandling-skill" class="animalHandling-skill" [(ngModel)]="animalHandling">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="animalHandling-skill" class="animalHandling-skill" [(ngModel)]="animalHandling">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="animalHandling-skill" class="animalHandling-skill" [(ngModel)]="animalHandling">
+          Jack of All Trades
+        </label>
+      </div>
+
+
+
+      <div class="row">
+        Arcana
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="arcana-skill" class="arcana-skill" [(ngModel)]="arcana">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="arcana-skill" class="arcana-skill" [(ngModel)]="arcana">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="arcana-skill" class="arcana-skill" [(ngModel)]="arcana">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="arcana-skill" class="arcana-skill" [(ngModel)]="arcana">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Athletics
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="athletics-skill" class="athletics-skill" [(ngModel)]="athletics">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="athletics-skill" class="athletics-skill" [(ngModel)]="athletics">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="athletics-skill" class="athletics-skill" [(ngModel)]="athletics">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="athletics-skill" class="athletics-skill" [(ngModel)]="athletics">
+          Jack of All Trades
+        </label>
+      </div>
+
+
+
+      <div class="row">
+        Deception
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="deception-skill" class="deception-skill" [(ngModel)]="deception">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="deception-skill" class="deception-skill" [(ngModel)]="deception">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="deception-skill" class="deception-skill" [(ngModel)]="deception">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="deception-skill" class="deception-skill" [(ngModel)]="deception">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        History
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="history-skill" class="history-skill" [(ngModel)]="history">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="history-skill" class="history-skill" [(ngModel)]="history">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="history-skill" class="history-skill" [(ngModel)]="history">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="history-skill" class="history-skill" [(ngModel)]="history">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Insight
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="insight-skill" class="insight-skill" [(ngModel)]="insight">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="insight-skill" class="insight-skill" [(ngModel)]="insight">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="insight-skill" class="insight-skill" [(ngModel)]="insight">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="insight-skill" class="insight-skill" [(ngModel)]="insight">
+          Jack of All Trades
+        </label>
+      </div>
+
+
+      <div class="row">
+        Intimidation
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="intimidation-skill" class="intimidation-skill" [(ngModel)]="intimidation">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="intimidation-skill" class="intimidation-skill" [(ngModel)]="intimidation">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="intimidation-skill" class="intimidation-skill" [(ngModel)]="intimidation">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="intimidation-skill" class="intimidation-skill" [(ngModel)]="intimidation">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Investigation
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="investigation-skill" class="investigation-skill" [(ngModel)]="investigation">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="investigation-skill" class="investigation-skill" [(ngModel)]="investigation">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="investigation-skill" class="investigation-skill" [(ngModel)]="investigation">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="investigation-skill" class="investigation-skill" [(ngModel)]="investigation">
+          Jack of All Trades
+        </label>
+      </div>
+
     </div>
 
+    <div class="col-4">
+      <div class="row">
+        Medicine
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" placeholder="None" name="medicine-skill" class="medicine-skill" [(ngModel)]="medicine">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="medicine-skill" class="medicine-skill" [(ngModel)]="medicine">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="medicine-skill" class="medicine-skill" [(ngModel)]="medicine">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="medicine-skill" class="medicine-skill" [(ngModel)]="medicine">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Nature
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="nature-skill" class="nature-skill" [(ngModel)]="nature">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="nature-skill" class="nature-skill" [(ngModel)]="nature">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="nature-skill" class="nature-skill" [(ngModel)]="nature">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="nature-skill" class="nature-skill" [(ngModel)]="nature">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Perception
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="perception-skill" class="perception-skill" [(ngModel)]="perception">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="perception-skill" class="perception-skill" [(ngModel)]="perception">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="perception-skill" class="perception-skill" [(ngModel)]="perception">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="perception-skill" class="perception-skill" [(ngModel)]="perception">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Performance
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="performance-skill" class="performance-skill" [(ngModel)]="performance">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="performance-skill" class="performance-skill" [(ngModel)]="performance">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="performance-skill" class="performance-skill" [(ngModel)]="performance">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="performance-skill" class="performance-skill" [(ngModel)]="performance">
+          Jack of All Trades
+        </label>
+      </div>
+
+
+      <div class="row">
+        Persuasion
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="persuasion-skill" class="persuasion-skill" [(ngModel)]="persuasion">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="persuasion-skill" class="persuasion-skill" [(ngModel)]="persuasion">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="persuasion-skill" class="persuasion-skill" [(ngModel)]="persuasion">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="persuasion-skill" class="persuasion-skill" [(ngModel)]="persuasion">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Religion
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="religion-skill" class="religion-skill" [(ngModel)]="religion">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="religion-skill" class="religion-skill" [(ngModel)]="religion">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="religion-skill" class="religion-skill" [(ngModel)]="religion">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="religion-skill" class="religion-skill" [(ngModel)]="religion">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Sleight of Hand
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="sleight-skill" class="sleight-skill" [(ngModel)]="sleightOfHand">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="sleight-skill" class="sleight-skill" [(ngModel)]="sleightOfHand">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="sleight-skill" class="sleight-skill" [(ngModel)]="sleightOfHand">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="sleight-skill" class="sleight-skill" [(ngModel)]="sleightOfHand">
+          Jack of All Trades
+        </label>
+      </div>
+
+
+      <div class="row">
+        Stealth
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="stealth-skill" class="stealth-skill" [(ngModel)]="stealth">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="stealth-skill" class="stealth-skill" [(ngModel)]="stealth">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="stealth-skill" class="stealth-skill" [(ngModel)]="stealth">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="stealth-skill" class="stealth-skill" [(ngModel)]="stealth">
+          Jack of All Trades
+        </label>
+      </div>
+
+      <div class="row">
+        Survival
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" value="0" name="survival-skill" class="survival-skill" [(ngModel)]="survival">
+          None
+        </label>
+        <label>
+          <input type="radio" value="1" name="survival-skill" class="survival-skill" [(ngModel)]="survival">
+          Proficient
+        </label>
+        <label>
+          <input type="radio" value="2" name="survival-skill" class="survival-skill" [(ngModel)]="survival">
+          Expertise
+        </label>
+        <label>
+          <input type="radio" value=".5" name="survival-skill" class="survival-skill" [(ngModel)]="survival">
+          Jack of All Trades
+        </label>
+      </div>
+    </div> <!--Skill Column-->
+
+    <div class="col" >
+      <button (click)="rollDieTwenty()">
+        Roll
+      </button>
+    </div>
 
   </div>
 
